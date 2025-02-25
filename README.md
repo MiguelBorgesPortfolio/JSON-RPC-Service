@@ -1,43 +1,36 @@
-# Tasklists API
+# JSON-RPC Service  
 
 ## 📌 About the Project  
-Tasklists is a **Software-as-a-Service (SaaS) application** for **project and task management**.  
-This project includes a fully implemented **RESTful API** using Flask, allowing multiple frontends (web, mobile, etc.) to interact with the system.  
+This project implements a **JSON-RPC 2.0 remote procedure call (RPC) service**, enabling a client-server architecture where remote functions can be invoked over a network.  
+The system consists of a **server** that exposes a set of functions and a **client** that interacts with the server via JSON-RPC requests.  
 
 ---
 
 ## 🛠 Technologies Used  
 - **Python**  
-- **Flask** (Python Web Framework)  
-- **SQLite3** (Database)  
+- **Sockets (TCP/IP Communication)**  
+- **JSON-RPC 2.0 Protocol**  
+- **Multithreading for Parallel Clients**  
+- **Unit Testing (unittest library)**  
 
 ---
 
-## 🌐 API Endpoints  
-### **Users**  
-- `POST /api/user/register/` → Register a new user  
-- `GET/PUT /api/user/` → Retrieve or update user information  
+## 📂 Project Structure  
 
-### **Projects**  
-- `GET/POST /api/projects/` → Retrieve a list of projects or add a new project  
-- `GET/PUT/DELETE /api/projects/<id>/` → Retrieve, update, or delete a project  
+### **1️⃣ Server**  
+✔ Receives and processes **JSON-RPC requests**  
+✔ Executes **registered functions** and returns results  
+✔ Handles **error validation and incorrect requests**  
+✔ Supports **multiple simultaneous client connections**  
 
-### **Tasks**  
-- `GET/POST /api/projects/<id>/tasks/` → Retrieve tasks or add a new task  
-- `GET/PUT/DELETE /api/projects/<id>/tasks/<id>/` → Retrieve, update, or delete a task  
+### **2️⃣ Client**  
+✔ Connects to the server and sends **JSON-RPC requests**  
+✔ Dynamically invokes **remote functions**  
+✔ Handles **responses and errors gracefully**  
 
-📝 **All API endpoints exchange data in JSON format.**  
-
----
-
-## 🔑 Authentication  
-This API uses **Basic Authentication** to protect endpoints (except user registration).  
-- Users must provide valid credentials to access project and task data.  
+### **3️⃣ Unit Testing**  
+✔ `tests_server.py` → Validates **server request handling and response formatting**  
+✔ `tests_client.py` → Ensures **client correctly sends and processes JSON-RPC requests**  
 
 ---
 
-## 🧪 Testing  
-The project includes a `tests.py` file with **unit tests** to validate API functionality.  
-
-
- 
